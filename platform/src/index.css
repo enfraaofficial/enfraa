@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+/* 
+  Enfraa | Simplifying Business
+  Vite React Global Styling - Light Mode Neubrutalist
+*/
+
+@layer base {
+  :root {
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F6F5FA;
+    --accent-purple: #7B5CF5;
+    --accent-deep: #5B3FD4;
+    --accent-soft: #AFA9EC;
+    --text-primary: #160F2E;
+    --text-muted: #615E72;
+    --border-color: #160F2E;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom Typography & Serif italic bindings */
+.font-instrument {
+  font-family: 'Instrument Serif', serif;
+}
+
+.font-pixel {
+  font-family: 'Pixelify Sans', monospace;
+}
+
+/* Neubrutalist Shadows */
+.shadow-neubrutal {
+  box-shadow: 4px 4px 0px 0px var(--text-primary);
+}
+
+.shadow-neubrutal-lg {
+  box-shadow: 8px 8px 0px 0px var(--text-primary);
+}
+
+.shadow-neubrutal-sm {
+  box-shadow: 2px 2px 0px 0px var(--text-primary);
+}
+
+/* Floating elements */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(6deg); }
+  100% { transform: translateY(-8px) rotate(8deg); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite alternate;
+}
+
+.animate-bounce-slow {
+  animation: bounceSlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes bounceSlow {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-6px); }
+}
+
+/* Scrollbars overrides */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-primary);
+  border-radius: 4px;
+}
+
+/* Custom layouts */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Floating WhatsApp Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  z-index: 9999;
+  background-color: var(--accent-purple);
+  color: #FFFFFF;
+  border: 2px solid var(--border-color);
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 4px 4px 0px 0px var(--text-primary);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: wa-bounce-float 3s ease-in-out infinite alternate;
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-8px) scale(1.1) !important;
+  box-shadow: 0 0 25px rgba(123, 92, 245, 0.8), 4px 4px 0px 0px var(--text-primary) !important;
+  background-color: var(--accent-deep);
+}
+
+@media (max-width: 640px) {
+  .whatsapp-float {
+    bottom: 16px;
+    right: 16px;
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@keyframes wa-bounce-float {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-8px); }
+}
